@@ -91,7 +91,7 @@ def create_dictionaries(model=None,
         combined= sequence.pad_sequences(combined, maxlen=maxlen)#每个句子所含词语对应的索引，所以句子中含有频数小于10的词语，索引为0
         return w2indx, w2vec,combined
     else:
-        print 'No data provided...'
+       print 'No data provided...'
 
 
 #创建词语字典，并返回每个词语的索引，词向量，以及每个句子所对应的词语索引
@@ -116,8 +116,8 @@ def get_data(index_dict,word_vectors,combined,y):
     for word, index in index_dict.items(): # 从索引为1的词语开始，对每个词语对应其词向量
         embedding_weights[index, :] = word_vectors[word]
     x_train, x_test, y_train, y_test = train_test_split(combined, y, test_size=0.2)
-    y_train = keras.utils.to_categorical(y_train,num_classes=3) 
-    y_test = keras.utils.to_categorical(y_test,num_classes=3)
+    y_train = np_utils.to_categorical(y_train,num_classes=3) 
+    y_test = np_utils.to_categorical(y_test,num_classes=3)
     # print x_train.shape,y_train.shape
     return n_symbols,embedding_weights,x_train,y_train,x_test,y_test
 
