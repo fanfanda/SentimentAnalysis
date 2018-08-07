@@ -106,7 +106,7 @@ def word2vec_train(combined):
     # model.build_vocab(combined) # input: list
     # model.train(combined)
     # model.save('../lstm_data_test/Word2vec_model.pkl')
-    model.load('../model/Word2vec_model.pkl')
+    model.load_word2vec_format('../model/Word2vec_model.pkl')
     index_dict, word_vectors,combined = create_dictionaries(model=model,combined=combined)
     return   index_dict, word_vectors,combined
 
