@@ -161,6 +161,7 @@ combined,y=loadfile()
 print(len(combined),len(y))
 print('Tokenising...')
 combined = tokenizer(combined)
+sys.exit()
 print('Training a Word2vec model...')
 index_dict, word_vectors,combined=word2vec_train(combined)
 
